@@ -10,9 +10,11 @@ pln_sell = 9.9545
 try_buy = 1.2994
 try_sell = 1.3550
 
+# Buy/Sell rate for user currency choice
 def display_rates(buy_rate, sell_rate, currency_name):
     print(f"\n{currency_name} buying rate is {buy_rate} and selling rate is {sell_rate}")
 
+# Check for correct number for exchange
 def get_float_input(prompt):
     while True:
         try:
@@ -49,6 +51,7 @@ def exit_program():
     print("\nExiting the program.")
     exit()
 
+# General loop
 while True:
 
     while True:
@@ -88,6 +91,12 @@ while True:
 
     perform_exchange(currency_buy_rate, currency_sell_rate, currency_choice_name)
 
-    another_exchange = input("Do you want to perform another currency exchange? (yes/no): ")
-    if another_exchange.lower() != 'yes':
-        exit_program()
+# Another exhange questionnare
+    while True:
+        another_exchange = input("Do you want to perform another currency exchange? (yes/no): ")
+        if another_exchange.lower() == 'yes':
+            break
+        elif another_exchange.lower() == 'no':
+            exit_program()
+        else:
+            print("\nInappropriate word! Type 'Yes' or 'No'.")
